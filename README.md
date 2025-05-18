@@ -14,7 +14,7 @@
 
 ## Project Description
 
-This repository provides a minimal and functional Docker-based setup for running WordPress locally. It uses the official WordPress and MySQL containers via Docker Compose. All content is persisted using volumes, and the setup is ready to be deployed via Docker with a custom (optional) `.env` configuration.
+This repository provides a minimal and functional Docker-based setup for running WordPress locally. It uses the official WordPress and MariaDB containers via Docker Compose. All content is persisted using volumes, and the setup is ready to be deployed via Docker with a custom (optional) `.env` configuration.
 
 ---
 
@@ -102,10 +102,10 @@ WORDPRESS_DB_USER=wp_user
 WORDPRESS_DB_PASSWORD=wp_pass
 WORDPRESS_DB_HOST=db:3306
 
-MYSQL_ROOT_PASSWORD=rootpass
-MYSQL_DATABASE=wordpress
-MYSQL_USER=wp_user
-MYSQL_PASSWORD=wp_pass
+MARIADB_ROOT_PASSWORD=rootpass
+MARIADB_DATABASE=wordpress
+MARIADB_USER=wp_user
+MARIADB_PASSWORD=wp_pass
 ```
 
 ## Contact
@@ -122,5 +122,3 @@ MYSQL_PASSWORD=wp_pass
 ### 💻 Project Repository
 
 - [GitHub Repository](https://github.com/BenjaminTietz/wordpress-docker)
-
-# wordpress-docker

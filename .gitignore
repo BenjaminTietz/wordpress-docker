@@ -1,0 +1,12 @@
+# Docker
+.env
+*.log
+
+# WordPress
+wp-content/uploads
+wp-content/cache
+wp-content/backups
+
+# System
+.DS_Store
+Thumbs.db

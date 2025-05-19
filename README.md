@@ -38,7 +38,7 @@ wordpress/
 
 ---
 
-### Quickstart
+## Quickstart
 
 1. **Install dependencies:**
 
@@ -58,7 +58,7 @@ cd wordpress-docker
 
 3. **Generate and configure the .env file:**
 
-The environment file will be created automatically from env.template.
+The environment file will be created automatically from template.env.
 Adjust the values to match your setup (optional):
 
 ```sh
@@ -85,7 +85,7 @@ http://localhost:8080
 Or, if deployed on a remote VM:
 
 ```
-http://<your-vm>>:8080
+http://<your-vm>:8080
 ```
 
 ## Usage

@@ -14,6 +14,8 @@ services:
       WORDPRESS_EMAIL: ${WORDPRESS_EMAIL}
     depends_on:
       - db
+    volumes:
+      - wordpress_data:/var/www/html
     networks:
       - wpnet
 
@@ -25,8 +27,14 @@ services:
       MARIADB_USER: ${WORDPRESS_DB_USER}
       MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
     networks:
       - wpnet
+
+volumes:
+  wordpress_data:
+  db_data:
 
 networks:
   wpnet:

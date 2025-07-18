@@ -1,0 +1,44 @@
+services:
+  wordpress:
+    image: wordpress:6.5.3-php8.2-apache
+    restart: on-failure
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_USERNAME: ${WORDPRESS_USERNAME}
+      WORDPRESS_PASSWORD: ${WORDPRESS_PASSWORD}
+      WORDPRESS_EMAIL: ${WORDPRESS_EMAIL}
+    depends_on:
+      - db
+    volumes:
+      - type: volume
+        source: wordpress_data
+        target: /var/www/html
+    networks:
+      - wpnet
+
+  db:
+    image: mariadb:10.11
+    restart: on-failure
+    environment:
+      MARIADB_DATABASE: ${WORDPRESS_DB_NAME}
+      MARIADB_USER: ${WORDPRESS_DB_USER}
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - type: volume
+        source: db_data
+        target: /var/lib/mysql
+    networks:
+      - wpnet
+
+volumes:
+  wordpress_data:
+  db_data:
+
+networks:
+  wpnet:
